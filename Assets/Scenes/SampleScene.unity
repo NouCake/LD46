@@ -59184,8 +59184,8 @@ Transform:
   m_LocalPosition: {x: 0, y: -0.09, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
-  m_Father: {fileID: 1893473140}
-  m_RootOrder: 2
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &787160775
 SpriteRenderer:
@@ -66237,7 +66237,6 @@ Transform:
   m_Children:
   - {fileID: 1293756771}
   - {fileID: 851090195}
-  - {fileID: 787160774}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

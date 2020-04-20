@@ -150,7 +150,7 @@ public class GameController : MonoBehaviour {
         quests.Add(generateDialogQuest("League_angry", "KILL 'EM ALL!"));
         quests.Add(generateWaitAllDedQuest(pendingObjects));
         quests.Add(generateDialogQuest("League_normal", "And another one!"));
-        quests.Add(generateDialogQuest("League_angry", "Time for Round2"));
+        quests.Add(generateDialogQuest("League_angry", "Round Two"));
         quests.Add(buildWave2(pendingObjects));
         quests.Add(generateWaitAllDedQuest(pendingObjects));
         quests.Add(generateDialogQuest("League_normal", "Good Job pal!\nLooks like you've got the hang of it!"));
@@ -169,7 +169,7 @@ public class GameController : MonoBehaviour {
         quests.Add(generateDialogQuest("League_normal", "You did it! I'm so proud of you son.\nThat was stressful, wasn't it?"));
         quests.Add(generateDialogQuest("Flame_cute", "Yeah... maybe let's slow down for a bit now.."));
         quests.Add(generateDialogQuest("League_normal", "Alright, let's have a short break."));
-        quests.Add(generateDialogQuest("League_normal", "Did you notice the red circles?\nThey indicate nearby enemys, so be careful if you see them."));
+        quests.Add(generateDialogQuest("League_normal", "Did you notice the red circles?\nThey indicate nearby enemys, so be careful when you see them."));
         quests.Add(generateWaitQuest(0.5f));
         quests.Add(generateDialogQuest("League_normal", "So.. are you refreshed now?\nCan we start again?"));
         quests.Add(generateDialogQuest("Flame_normal", "I think so.. but let's have a chill round now."));
@@ -208,8 +208,8 @@ public class GameController : MonoBehaviour {
         quests.Add(generateDialogQuest("Morty", "Alright alright.."));
         quests.Add(generateWaitQuest(1.0f));
         quests.Add(generateDialogQuest("Flame_normal", "What the hell was that?"));
-        quests.Add(generateDialogQuest("League_normal", "Hmm?\nSorry I wasn't paying atention."));
-        quests.Add(generateDialogQuest("League_normal", "I was looking for some toilet paper on amadson.\nBy the way, we need some a power level of 500 now"));
+        quests.Add(generateDialogQuest("League_normal", "Hmm?\nSorry I wasn't paying attention."));
+        quests.Add(generateDialogQuest("League_normal", "I was looking for some toilet paper on amadson.\nBy the way, we need a power level of 500 now"));
         quests.Add(generateDialogQuest("League_normal", "You should better give your best"));
         quests.Add(buildWave4(pendingObjects));
         quests.Add(new QuestStep(
@@ -223,9 +223,9 @@ public class GameController : MonoBehaviour {
             delegate () { }
             ));
         quests.Add(generateDialogQuest("League_normal", "That was awesome!!\nYou are soo good!"));
-        quests.Add(generateDialogQuest("League_normal", "I feel like our Friendship can go through all hardships now.\nWe are the ultimate Team now."));
+        quests.Add(generateDialogQuest("League_normal", "I feel like our friendship can go through all hardships now.\nWe are the ultimate Team now."));
         quests.Add(generateDialogQuest("Flame_normal", "You're a super weird fella..\nBut I guess we kept the fire of our friendship alive!"));
-        quests.Add(generateDialogQuest("League_normal", "Ýeah, It was nice knowing you\nbut it seems as our adventure is now over."));
+        quests.Add(generateDialogQuest("League_normal", "Yeah, It was nice knowing you\nbut it seems as our adventure is now over."));
         quests.Add(generateDialogQuest("League_normal", "We will meet again, my dear friend!"));
         quests.Add(generateWaitQuest(3.0f));
         quests.Add(new QuestStep(
@@ -471,16 +471,18 @@ public class GameController : MonoBehaviour {
     }
 
     private void spawnUpdate() {
-        if(FlameSpawnTime > 0) {
-            spawnTimer += Time.deltaTime;
-            if (spawnTimer > FlameSpawnTime) {
-                spawnTimer -= FlameSpawnTime;
+        if (!GameController.IsPaused()) {
+            if (FlameSpawnTime > 0) {
+                spawnTimer += Time.deltaTime;
+                if (spawnTimer > FlameSpawnTime) {
+                    spawnTimer -= FlameSpawnTime;
 
 
-                float flamePower = Random.Range(FlameSpawnStrength.x, FlameSpawnStrength.y);
-                Vector2 spawnPos = getRandomLocationInBounds();
-                spawnFlame(spawnPos, flamePower);
+                    float flamePower = Random.Range(FlameSpawnStrength.x, FlameSpawnStrength.y);
+                    Vector2 spawnPos = getRandomLocationInBounds();
+                    spawnFlame(spawnPos, flamePower);
 
+                }
             }
         }
     }

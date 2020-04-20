@@ -91,7 +91,7 @@ public class DialogControler : MonoBehaviour {
             dialogRunning = true;
             curDialogPos = 0;
             DialogContainer.SetActive(true);
-            //GameController.SetPaused(true);
+            GameController.SetPaused(true);
         }
     }
 
