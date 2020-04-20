@@ -53,14 +53,14 @@ public class GameController : MonoBehaviour {
         quests.Add(generateDialogQuest("League_normal", "Okay then, let's start with the basics:"));
 
         quests.Add(new QuestStep(
-            delegate () {
+            delegate () { //Called once for Init
                 pendingObjects.Add(spawnFlame(new Vector3(-3, 0, 0), 40));
                 pendingObjects.Add(spawnFlame(new Vector3( 3, 0, 0), 40));
                 pendingObjects.Add(spawnFlame(new Vector3(0, -2, 0), 40));
                 startNextQuest();
             },
-            delegate () { },
-            delegate () { }
+            delegate () { }, //called every frame, while this is the active quest
+            delegate () { } //Called once at end
             ));
 
         quests.Add(generateWaitQuest(1.0f));
@@ -104,7 +104,7 @@ public class GameController : MonoBehaviour {
         quests.Add(generateDialogQuest("League_normal", "Get back here! We are not done yet.\nThere is still so much more to learn!"));
         quests.Add(generateCameraPosQuest(Vector3.zero));
         quests.Add(generateWaitQuest(0.5f));
-        quests.Add(generateDialogQuest("League_normal", "The next thing you should know is:\nDo not run while holding a scissors\n...or just don't run in general."));
+        quests.Add(generateDialogQuest("League_normal", "The next thing you should know is:\nDo not run while holding scissors\n...or just don't run in general."));
         quests.Add(generateDialogQuest("League_normal", "Your flames will loose power if they're too fast."));
         quests.Add(generateCameraPosQuest(Vector3.left * 10));
 
@@ -126,7 +126,7 @@ public class GameController : MonoBehaviour {
             ));
         quests.Add(generateDialogQuest("League_normal", "Now try to bring this pal home, before he extinguishes!"));
         quests.Add(generateWaitAllDedQuest(pendingObjects));
-        quests.Add(generateDialogQuest("League_normal", "GG\nYou did a great job here.."));
+        quests.Add(generateDialogQuest("League_normal", "GG\nYou did a great job here..."));
         quests.Add(new QuestStep(
             delegate () {
                 foreach(GameObject o in killLater) {
@@ -142,7 +142,7 @@ public class GameController : MonoBehaviour {
         quests.Add(generateWaitQuest(0.5f));
         quests.Add(generateDialogQuest("League_normal", "Congratulations\nYou have completed the Tutorial\nNOT YET!!!!!", 10));
         quests.Add(generateWaitQuest(0.5f));
-        quests.Add(generateDialogQuest("League_normal", "Just kidding. you did. \nBut you still have to deal with me a little longer,.\nbecause I'm trying to KEEP OUR FRIENDSHIP ALIVE here."));
+        quests.Add(generateDialogQuest("League_normal", "Just kidding. You did. \nBut you still have to deal with me a little longer,\nbecause I'm trying to KEEP OUR FRIENDSHIP ALIVE here."));
         quests.Add(generateDialogQuest("League_normal", "But I will let you have a little bit of fun now."));
         quests.Add(generateDialogQuest("League_angry", "Time for Round One"));
         quests.Add(buildWave1(pendingObjects));
@@ -167,7 +167,7 @@ public class GameController : MonoBehaviour {
             delegate () { }
             ));
         quests.Add(generateDialogQuest("League_normal", "You did it! I'm so proud of you son.\nThat was stressful, wasn't it?"));
-        quests.Add(generateDialogQuest("Flame_cute", "Yeah... maybe let's slow down for a bit now.."));
+        quests.Add(generateDialogQuest("Flame_cute", "Yeah... maybe let's slow down for a bit now..."));
         quests.Add(generateDialogQuest("League_normal", "Alright, let's have a short break."));
         quests.Add(generateDialogQuest("League_normal", "Did you notice the red circles?\nThey indicate nearby enemys, so be careful when you see them."));
         quests.Add(generateWaitQuest(0.5f));
@@ -176,7 +176,7 @@ public class GameController : MonoBehaviour {
         quests.Add(generateDialogQuest("League_normal", "Everything for you, my dear Friend!"));
         quests.Add(generateDialogQuest("League_normal", "Let's start the slow Round!"));
         quests.Add(generateDialogQuest("Morty", "Ah geeze Richard, where are we?"));
-        quests.Add(generateDialogQuest("Rick", "I don't care Mortimer, I just had to get away from you Dad."));
+        quests.Add(generateDialogQuest("Rick", "I don't care Mortimer, I just had to get away from your Dad."));
         quests.Add(generateDialogQuest("Morty", "Hey, what is this button?"));
         quests.Add(generateWaitQuest(0.5f));
         quests.Add(generateDialogQuest("Morty", "FULL ALPACA MAYHEM", 10));
@@ -209,8 +209,8 @@ public class GameController : MonoBehaviour {
         quests.Add(generateWaitQuest(1.0f));
         quests.Add(generateDialogQuest("Flame_normal", "What the hell was that?"));
         quests.Add(generateDialogQuest("League_normal", "Hmm?\nSorry I wasn't paying attention."));
-        quests.Add(generateDialogQuest("League_normal", "I was looking for some toilet paper on amadson.\nBy the way, we need a power level of 500 now"));
-        quests.Add(generateDialogQuest("League_normal", "You should better give your best"));
+        quests.Add(generateDialogQuest("League_normal", "I was looking for some toilet paper on amadson.\nBy the way, we need a power level of 500 now."));
+        quests.Add(generateDialogQuest("League_normal", "You should better give your best!"));
         quests.Add(buildWave4(pendingObjects));
         quests.Add(new QuestStep(
             delegate () {
@@ -225,7 +225,7 @@ public class GameController : MonoBehaviour {
         quests.Add(generateDialogQuest("League_normal", "That was awesome!!\nYou are soo good!"));
         quests.Add(generateDialogQuest("League_normal", "I feel like our friendship can go through all hardships now.\nWe are the ultimate Team now."));
         quests.Add(generateDialogQuest("Flame_normal", "You're a super weird fella..\nBut I guess we kept the fire of our friendship alive!"));
-        quests.Add(generateDialogQuest("League_normal", "Yeah, It was nice knowing you\nbut it seems as our adventure is now over."));
+        quests.Add(generateDialogQuest("League_normal", "Yeah, It was nice knowing you,\nbut it seems as our adventure is now over."));
         quests.Add(generateDialogQuest("League_normal", "We will meet again, my dear friend!"));
         quests.Add(generateWaitQuest(3.0f));
         quests.Add(new QuestStep(
